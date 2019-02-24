@@ -6,4 +6,8 @@ class ProjectsController < ApplicationController
     # raise @projects.inspect
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
 end
