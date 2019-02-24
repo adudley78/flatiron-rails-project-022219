@@ -10,7 +10,13 @@
 
         <header class="header" data-reactid=".0.0">
           <h1 data-reactid=".0.0.0">projects</h1>
-          <input class="new-todo" placeholder="add a project" value="" data-reactid=".0.0.1" data-com.agilebits.onepassword.user-edited="yes">
+
+          <!-- <input class="new-todo" placeholder="add a project" value="" data-reactid=".0.0.1" data-com.agilebits.onepassword.user-edited="yes"> -->
+
+          <%= form_for(@project) do |f| %>
+            <%= f.text_field :name, :class => "new-todo" %>
+          <% end %>
+
         </header>
 
         <section class="main" data-reactid=".0.1">
