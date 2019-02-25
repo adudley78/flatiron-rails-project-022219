@@ -12,7 +12,9 @@
         <header class="header" data-reactid=".0.0">
           <h1 data-reactid=".0.0.0">issues</h1>
           <h3 data-reactid=".0.0.0"><%= @project.name %></h3>
-          <input class="new-todo" placeholder="add an issue" value="" data-reactid=".0.0.1" data-com.agilebits.onepassword.user-edited="yes">
+          <%= form_for([@project, @issue]) do |f| %>
+            <%= f.text_field :description, :class => "new-todo" %>
+          <% end %>
         </header>
 
         <section class="main" data-reactid=".0.1">

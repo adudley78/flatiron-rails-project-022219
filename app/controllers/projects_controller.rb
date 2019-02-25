@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    
+    @issue = @project.issues.build
   end
 
   def create
