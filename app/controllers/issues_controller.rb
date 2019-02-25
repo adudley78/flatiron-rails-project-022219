@@ -13,6 +13,10 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update
+    raise params.inspect
+  end
+
   private
 
   def issue_params

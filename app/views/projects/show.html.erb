@@ -17,24 +17,27 @@
           <% end %>
         </header>
 
-        <section class="main" data-reactid=".0.1">
+        <section class="main">
           <!-- make this an archive feature -->
-          <input id="toggle-all" class="toggle-all" type="checkbox" data-reactid=".0.1.0">
-          <label for="toggle-all" data-reactid=".0.1.1"></label>
-          <ul class="todo-list" data-reactid=".0.1.2">
+          <input class="toggle-all" type="checkbox">
+          <label for="toggle-all">Mark all as complete</label>
+          <ul class="todo-list">
             <% @project.issues.each do |issue| %>
-              <li class="view" data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b">
-                <div class="view" data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b.0">
-                  <input class="toggle" type="checkbox" data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b.0.0">
-                  <label data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b.0.1"><%= issue.description %></label>
-                  <button class="destroy" data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b.0.2"></button>
+              <li class="<%= "completed" if issue.complete? %>">
+                <div class="view">
+                  <%= form_for([@project, issue], :url => project_issue_path(@project, issue), :method => :patch) do |f| %>
+                    <%= f.check_box :status, :class => "toggle", :checked => (true if issue.complete?) %>
+                  <% end %>
+                  <label><%= issue.description %></label>
                 </div>
-                <input class="edit" value="Test" data-reactid=".0.1.2.$368ab340-814e-4ef9-9940-85f447a18c5b.1">
+              </li>
             <% end %>
-          </section>
+          </ul>
+        </section>
 
           <footer class="footer" data-reactid=".0.2">
             <span class="todo-count" data-reactid=".0.2.0">
+              <!-- make the count work -->
               <strong data-reactid=".0.2.0.0">1</strong>
               <span data-reactid=".0.2.0.1"> </span>
               <span data-reactid=".0.2.0.2">issue(s)</span>

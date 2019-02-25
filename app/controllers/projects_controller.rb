@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    @issue = @project.issues.build
+    @issue = Issue.new
   end
 
   def create
