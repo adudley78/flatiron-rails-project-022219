@@ -13,8 +13,9 @@
 
           <!-- <input class="new-todo" placeholder="add a project" value="" data-reactid=".0.0.1" data-com.agilebits.onepassword.user-edited="yes"> -->
 
+          <!-- break logic below out into a helper -->
           <%= form_for(@project) do |f| %>
-            <%= f.text_field :name, :class => "new-todo" %>
+              <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
           <% end %>
 
         </header>

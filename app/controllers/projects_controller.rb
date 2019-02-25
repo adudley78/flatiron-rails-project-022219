@@ -9,17 +9,22 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    
+
     @issue = @project.issues.build
   end
 
   def create
     # raise params.inspect
-    @project = Project.create(project_params)
-    # @project.name = params[:project][:name]
-    # @project.save
+    @project = Project.new(project_params)
+    if @project.save
 
-    redirect_to project_path(@project)
+      redirect_to project_path(@project)
+    else
+      @projects = Project.all
+
+
+      render :index
+    end
   end
 
   private

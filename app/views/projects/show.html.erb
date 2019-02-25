@@ -13,7 +13,7 @@
           <h1 data-reactid=".0.0.0">issues</h1>
           <h3 data-reactid=".0.0.0"><%= @project.name %></h3>
           <%= form_for([@project, @issue]) do |f| %>
-            <%= f.text_field :description, :class => "new-todo" %>
+            <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
           <% end %>
         </header>
 
