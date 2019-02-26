@@ -20,10 +20,17 @@ class IssuesController < ApplicationController
     redirect_to project_path(@issue.project)
   end
 
+  def destroy
+    @issue = Issue.find(params[:id])
+    @issue.destroy(issue_params)
+
+    redirect_to project_path(@issue.project)
+  end
+
   private
 
   def issue_params
-    params.require(:issue).permit(:description)
+    params.require(:issue).permit(:description, :status)
   end
 
 end

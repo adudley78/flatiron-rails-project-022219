@@ -14,14 +14,10 @@
           <% end %>
         </header>
         <section class="main">
-          <input class="toggle-all" type="checkbox">
+          <input class="toggle-all" type="checkbox"></input>
           <label for="toggle-all"></label>
           <ul class="todo-list">
             <%= render :collection => @project.issues, :partial => "issues/issue_li", :as => :issue %>
-            <!-- @project.issues.each do |issue| -->
-              <!-- render :partial => "issues/issue_li", :locals => {:issue => issue} -->
-            <!-- render "issues/issue_li", :issue => issue -->
-            <!-- end -->
           </ul>
         </section>
           <footer class="footer">

@@ -2,6 +2,7 @@ class Issue < ApplicationRecord
   # add association methods to thi model
   belongs_to :project
   validates :description, :presence => true
+  validates :status, :presence => true
 
   STATUS = {
     :incomplete => 0,
