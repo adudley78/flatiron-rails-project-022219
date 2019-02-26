@@ -17,10 +17,11 @@
           <input class="toggle-all" type="checkbox">
           <label for="toggle-all"></label>
           <ul class="todo-list">
-            <% @project.issues.each do |issue| %>
+            <%= render :collection => @project.issues, :partial => "issues/issue_li", :as => :issue %>
+            <!-- @project.issues.each do |issue| -->
               <!-- render :partial => "issues/issue_li", :locals => {:issue => issue} -->
-              <%= render "issues/issue_li", :issue => issue %>
-            <% end %>
+            <!-- render "issues/issue_li", :issue => issue -->
+            <!-- end -->
           </ul>
         </section>
           <footer class="footer">
