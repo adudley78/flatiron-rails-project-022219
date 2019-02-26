@@ -13,7 +13,6 @@
             <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
           <% end %>
         </header>
-
         <section class="main">
           <input class="toggle-all" type="checkbox">
           <label for="toggle-all"></label>
@@ -30,7 +29,6 @@
             <% end %>
           </ul>
         </section>
-
           <footer class="footer">
             <span class="todo-count">
               <!-- make the count work -->
@@ -47,7 +45,6 @@
               <li><a href="#/archived" class="">Archived</a></li>
             </ul>
           </footer>
-
       </section>
   </body>
 </html>
