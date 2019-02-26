@@ -1,8 +1,6 @@
-<%= content_tag_for :li, issue, :class => li_class_for_issue(issue) do %>
+<%= li_for_issue(issue) do %>
   <div class="view">
-    <%= form_for([@project, issue]) do |f| %>
-      <%= f.check_box :status, :class => "toggle", :checked => (issue.complete?) %>
-    <% end %>
+    <%= form_for_issue_status(issue) %>
     <label><%= issue.description %></label>
   </div>
 <% end %>
