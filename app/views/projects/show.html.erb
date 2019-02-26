@@ -18,7 +18,8 @@
           <label for="toggle-all"></label>
           <ul class="todo-list">
             <% @project.issues.each do |issue| %>
-              <%= render :partial => "issues/issue_li", :locals => {:issue => issue} %>
+              <!-- render :partial => "issues/issue_li", :locals => {:issue => issue} -->
+              <%= render "issues/issue_li", :issue => issue %>
             <% end %>
           </ul>
         </section>
