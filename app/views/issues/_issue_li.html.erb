@@ -1,0 +1,8 @@
+<li class="<%= "completed" if issue.complete? %>">
+  <div class="view">
+    <%= form_for([@project, issue]) do |f| %>
+      <%= f.check_box :status, :class => "toggle", :checked => (true if issue.complete?) %>
+    <% end %>
+    <label><%= issue.description %></label>
+  </div>
+</li>

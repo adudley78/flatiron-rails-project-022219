@@ -18,14 +18,7 @@
           <label for="toggle-all"></label>
           <ul class="todo-list">
             <% @project.issues.each do |issue| %>
-              <li class="<%= "completed" if issue.complete? %>">
-                <div class="view">
-                  <%= form_for([@project, issue]) do |f| %>
-                    <%= f.check_box :status, :class => "toggle", :checked => (true if issue.complete?) %>
-                  <% end %>
-                  <label><%= issue.description %></label>
-                </div>
-              </li>
+              <%= render :partial => "issues/issue_li", :locals => {:issue => issue} %>
             <% end %>
           </ul>
         </section>
