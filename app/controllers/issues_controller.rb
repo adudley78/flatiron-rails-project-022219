@@ -14,7 +14,10 @@ class IssuesController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    @issue = Issue.find(params[:id])
+    @issue.update(issue_params)
+
+    redirect_to project_path(@issue.project)
   end
 
   private

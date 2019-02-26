@@ -6,26 +6,22 @@
   </head>
   <body>
     <section class="todoapp">
-      <div data-reactid=".0">
-
-        <!-- Add the name of the project somewhere on this view -->
-        <header class="header" data-reactid=".0.0">
-          <h1 data-reactid=".0.0.0">issues</h1>
-          <h3 data-reactid=".0.0.0"><%= @project.name %></h3>
+        <header class="header">
+          <h1>issues</h1>
+          <h3><%= @project.name %></h3>
           <%= form_for([@project, @issue]) do |f| %>
             <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
           <% end %>
         </header>
 
         <section class="main">
-          <!-- make this an archive feature -->
           <input class="toggle-all" type="checkbox">
-          <label for="toggle-all">Mark all as complete</label>
+          <label for="toggle-all"></label>
           <ul class="todo-list">
             <% @project.issues.each do |issue| %>
               <li class="<%= "completed" if issue.complete? %>">
                 <div class="view">
-                  <%= form_for([@project, issue], :url => project_issue_path(@project, issue), :method => :patch) do |f| %>
+                  <%= form_for([@project, issue]) do |f| %>
                     <%= f.check_box :status, :class => "toggle", :checked => (true if issue.complete?) %>
                   <% end %>
                   <label><%= issue.description %></label>
@@ -35,24 +31,23 @@
           </ul>
         </section>
 
-          <footer class="footer" data-reactid=".0.2">
-            <span class="todo-count" data-reactid=".0.2.0">
+          <footer class="footer">
+            <span class="todo-count">
               <!-- make the count work -->
-              <strong data-reactid=".0.2.0.0">1</strong>
-              <span data-reactid=".0.2.0.1"> </span>
-              <span data-reactid=".0.2.0.2">issue(s)</span>
-              <span data-reactid=".0.2.0.3"> active</span>
+              <strong>1</strong>
+              <span> </span>
+              <span>issue(s)</span>
+              <span> active</span>
             </span>
-            <ul class="filters" data-reactid=".0.2.1">
-              <li data-reactid=".0.2.1.0"><a href="#/" class="selected" data-reactid=".0.2.1.0.0">All</a></li>
-              <span data-reactid=".0.2.1.1"> </span>
-              <li data-reactid=".0.2.1.2"><a href="#/active" class="" data-reactid=".0.2.1.2.0">Active</a></li>
-              <span data-reactid=".0.2.1.3"> </span>
-              <li data-reactid=".0.2.1.4"><a href="#/archived" class="" data-reactid=".0.2.1.4.0">Archived</a></li>
+            <ul class="filters">
+              <li><a href="#/" class="selected">All</a></li>
+              <span> </span>
+              <li><a href="#/active" class="">Active</a></li>
+              <span> </span>
+              <li><a href="#/archived" class="">Archived</a></li>
             </ul>
-
           </footer>
-        </div>
+
       </section>
   </body>
 </html>

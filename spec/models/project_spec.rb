@@ -8,12 +8,6 @@ RSpec.describe Project, type: :model do
 
       expect(project.valid?).to eq(true)
     end
-
-    it "must have a status" do
-      project = Project.create(status:true) # arguments contain a name
-
-      expect(project.valid?).to eq(true)
-    end
   end
 
 end
