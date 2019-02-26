@@ -1,4 +1,4 @@
-<li class="<%= "completed" if issue.complete? %>">
+<li class="<%= li_class_for_issue(issue) %>">
   <div class="view">
     <%= form_for([@project, issue]) do |f| %>
       <%= f.check_box :status, :class => "toggle", :checked => (true if issue.complete?) %>
