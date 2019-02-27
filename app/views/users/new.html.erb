@@ -1,31 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <title></title>
-      </head>
-      <body>
-        <section class="todoapp">
-            <header class="header">
-              <h1>Signup!</h1>
-              <%= form_for(@user) do |f| %>
-                <%= f.text_field :email, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "enter your username") %>
-              <% end %>
-            </header>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+    </head>
+    <body>
+      <section class="todoapp">
+        <header class="header">
+          <h1>Signup!</h1>
+            <%= form_for(@user) do |f| %>
+              <%= f.text_field :email, :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:email).first || "enter your username") %>
+            <% end %>
+        </header>
 
-              <footer class="footer">
+        <footer class="footer">
 
-              </footer>
-          </section>
-      </body>
-    </html>
-
-  </body>
-</html>
+        </footer>
+      </section>
+    </body>
+  </html>

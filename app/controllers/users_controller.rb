@@ -5,12 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @user = User.new(user_params)
     if @user.save
-
-      # add user to project association so I get the path I need below
-      redirect_to project_path(@project)
+      redirect_to root_path
     else
       render :new
     end
