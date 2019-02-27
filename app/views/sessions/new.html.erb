@@ -7,9 +7,9 @@
     <body>
       <section class="todoapp">
         <header class="header">
-          <h1>Signup!</h1>
-            <%= form_for(@user) do |f| %>
-              <%= f.text_field :email, :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:email).first || "enter your email address") %>
+          <h1>Login!</h1>
+            <%= form_tag(sessions_path) do %>
+              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => "login with your email" %>
             <% end %>
         </header>
 
