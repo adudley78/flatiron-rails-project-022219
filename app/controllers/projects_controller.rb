@@ -1,11 +1,11 @@
 class ProjectsController < ApplicationController
+  before_action :authentication_required
 
   # render all projects to projects/index.html.erb
   def index
     # If you're not logged in, you can't see this and go back to login page
-    @project = Project.new
-    @projects = Project.all
-    # raise @projects.inspect
+      @project = Project.new
+      @projects = Project.all
   end
 
   def show

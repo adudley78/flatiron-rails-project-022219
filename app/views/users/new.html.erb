@@ -10,6 +10,8 @@
           <h1>Signup!</h1>
             <%= form_for(@user) do |f| %>
               <%= f.text_field :email, :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:email).first || "enter your email address") %>
+              <%= f.text_field :password, :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:password).first || "select a password") %>
+              <%= f.submit %>
             <% end %>
         </header>
 

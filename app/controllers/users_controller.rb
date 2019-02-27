@@ -7,9 +7,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # Log them in
+      session[:user_id] = @user.id
+
       redirect_to root_path
     else
+
       render :new
     end
   end
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
 
   # Implement strong params
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :password)
   end
 
 end
