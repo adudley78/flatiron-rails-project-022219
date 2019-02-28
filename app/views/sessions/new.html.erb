@@ -9,9 +9,9 @@
         <header class="header">
           <h1>Login!</h1>
             <%= form_tag(sessions_path) do %>
-              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => "enter your email" %>
-              <%= text_field_tag :password, '', :class => "new-todo", :placeholder => "enter your password" %>
-              <%= submit_tag %>
+              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:description).first || "enter your email") %>
+              <%= password_field, :password, '', :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:description).first || "enter your password") %>
+              <%= submit_tag "Sign in!", :class => "button" %>
             <% end %>
         </header>
 

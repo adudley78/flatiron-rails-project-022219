@@ -2,7 +2,7 @@
 <!-- somewhere below I can try implementing a form_tag for the check-bubble and also look at projects#index for what's different -->
   <div class="view">
     <%= form_for_issue_status(issue) %>
-
+    <input class="toggle" type="checkbox">
     <label><%= issue.description %></label>
 
     <%= button_to "x", project_issue_path(issue.project, issue), :method => :delete, :class => "destroy" %>

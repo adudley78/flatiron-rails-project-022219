@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
     <section class="todoapp">
         <header class="header">
           <h1>issues</h1>
           <h3><%= @project.name %></h3>
           <%= form_for([@project, @issue]) do |f| %>
             <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
           <% end %>
         </header>
         <section class="main">
@@ -37,5 +32,3 @@
             </ul>
           </footer>
       </section>
-  </body>
-</html>
