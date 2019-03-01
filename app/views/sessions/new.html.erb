@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-  <html lang="en" dir="ltr">
-    <head>
-      <meta charset="utf-8">
-      <title></title>
-    </head>
-    <body>
+
       <section class="todoapp">
         <header class="header">
           <h1>Login!</h1>
             <%= form_tag(sessions_path) do %>
-              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:description).first || "enter your email") %>
-              <%= password_field, :password, '', :class => "new-todo", :placeholder => (@user.errors.full_messages_for(:description).first || "enter your password") %>
+              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => "enter your email" %>
+              <%= text_field_tag :password, '', :class => "new-todo", :placeholder => "enter your password" %>
               <%= submit_tag "Sign in!", :class => "button" %>
             <% end %>
+
+            <p><%= link_to "Login with GitHub", "/auth/github" %></p>
         </header>
 
         <footer class="footer">
 
         </footer>
       </section>
-    </body>
-  </html>
