@@ -13,7 +13,6 @@ class ProjectsController < ApplicationController
     # and when a new issue is created associate with the current user
     @project = Project.find(params[:id])
     @issue = Issue.new
-    @issues = Issue.all
   end
 
   def create
@@ -34,7 +33,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :user_id)
+    params.require(:project).permit(:name)
   end
 
 end
