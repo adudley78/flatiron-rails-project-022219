@@ -9,13 +9,16 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    # only show projects and issues that belong to this user
+    # and when a new issue is created associate with the current user
     @project = Project.find(params[:id])
-
     @issue = Issue.new
+    @issues = Issue.all
   end
 
   def create
-    # raise params.inspect
+    # @user = current_user
+    # @project = @user.projects.build(project_params)
     @project = Project.new(project_params)
     if @project.save
 
@@ -31,7 +34,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, :user_id)
   end
 
 end

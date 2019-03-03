@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-    <section class="todoapp">
-        <header class="header">
-          <h1>issues</h1>
-          <h3><%= @project.name %></h3>
-          <%= form_for([@project, @issue]) do |f| %>
-            <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-          <% end %>
-        </header>
-        <section class="main">
-          <input class="toggle-all" type="checkbox"></input>
-          <label for="toggle-all"></label>
-          <ul class="todo-list">
-            <%= render :collection => @project.issues, :partial => "issues/issue_li", :as => :issue %>
-          </ul>
-        </section>
-          <footer class="footer">
-            <span class="todo-count">
-              <!-- make the count work -->
-              <strong>1</strong>
-              <span> </span>
-              <span>issue(s)</span>
-              <span> active</span>
-            </span>
-            <ul class="filters">
-              <li><a href="#/" class="selected">All</a></li>
-              <span> </span>
-              <li><a href="#/active" class="">Active</a></li>
-              <span> </span>
-              <li><a href="#/archived" class="">Archived</a></li>
-            </ul>
-          </footer>
-      </section>
+<section class="todoapp">
+  <header class="header">
+    <h1>issues</h1>
+      <h3><%= @project.name %></h3>
+        <%= form_for([@project, @issue]) do |f| %>
+          <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        <% end %>
+  </header>
+<section class="main">
+  <input class="toggle-all" type="checkbox"></input>
+  <label for="toggle-all"></label>
+    <ul class="todo-list">
+      <%= render :collection => @project.issues, :partial => "issues/issue_li", :as => :issue %>
+    </ul>
+</section>
+<footer class="footer">
+  <span class="todo-count">
+    <!-- make the count work -->
+    <strong><%= @issues.size %></strong>
+    <span> </span>
+    <span>issue(s)</span>
+    <span> active</span>
+  </span>
+  <ul class="filters">
+    <li><a href="#/" class="selected">All</a></li>
+      <span> </span>
+    <li><a href="#/active" class="">Active</a></li>
+      <span> </span>
+    <li><a href="#/archived" class="">Archived</a></li>
+  </ul>
+</footer>

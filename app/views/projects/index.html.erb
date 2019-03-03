@@ -1,51 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <section class="todoapp">
-        <header class="header">
-          <h1>projects</h1>
-          <%= form_for(@project) do |f| %>
-              <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
-          <% end %>
-        </header>
-        <section class="main">
-          <input id="toggle-all" class="toggle-all" type="checkbox">
-          <label for="toggle-all"></label>
-          <ul class="todo-list">
-            <% @projects.each do |project| %>
-              <li class="view">
-                <div class="view">
-                  <input class="toggle" type="checkbox">
-                  <label><%= link_to project.name, project_path(project) %></label>
-                  <button class="destroy"></button>
-                </div>
-                <input class="edit" value="Test">
-              </li>
-            <% end %>
-          </section>
-          <footer class="footer">
-            <span class="todo-count">
-              <strong>1</strong>
-              <span> </span>
-              <span>project(s)</span>
-              <span> active</span>
-            </span>
-            <ul class="filters">
-              <li><a href="#/" class="selected">All</a></li>
-              <span> </span>
-              <li><a href="#/active" class="">Active</a></li>
-              <span> </span>
-              <li><a href="#/archived" class="">Archived</a></li>
-            </ul>
-          </footer>
-      </section>
-      <footer class="info">
-        <p>You're logged in as: <%= current_user.email %></p>
-        <p><%= link_to "Logout!", logout_path %>
-      </footer>
-  </body>
-</html>
+<section class="todoapp">
+  <header class="header">
+    <h1>projects</h1>
+      <%= form_for(@project) do |f| %>
+        <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
+      <% end %>
+  </header>
+<section class="main">
+  <input id="toggle-all" class="toggle-all" type="checkbox">
+  <label for="toggle-all"></label>
+  <ul class="todo-list">
+    <% @projects.each do |project| %>
+    <li class="view">
+      <div class="view">
+        <input class="toggle" type="checkbox">
+        <label><%= link_to project.name, project_path(project) %></label>
+        <button class="destroy"></button>
+      </div>
+      <input class="edit" value="Test">
+    </li>
+    <% end %>
+</section>
+<footer class="footer">
+  <span class="todo-count">
+  <strong><%= @projects.size %></strong>
+  <span> </span>
+  <span>project(s)</span>
+  <span> active</span>
+  </span>
+  <ul class="filters">
+    <li><a href="#/" class="selected">All</a></li>
+      <span> </span>
+    <li><a href="#/active" class="">Active</a></li>
+      <span> </span>
+    <li><a href="#/archived" class="">Archived</a></li>
+  </ul>
+</footer>
+</section>
+  <footer class="info">
+    <p>You're logged in as: <%= current_user.email %></p>
+    <p><%= link_to "Logout!", logout_path %>
+  </footer>

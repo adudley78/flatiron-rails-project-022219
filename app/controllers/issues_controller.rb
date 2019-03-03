@@ -3,6 +3,8 @@ class IssuesController < ApplicationController
   def create
     # find the parent
     @project = Project.find(params[:project_id])
+    # build the assoation between the project and this issue
+    # AND build the association between this issue and the current user
     @issue = @project.issues.build(issue_params)
     if @issue.save
 
