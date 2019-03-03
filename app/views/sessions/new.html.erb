@@ -1,18 +1,17 @@
 <!DOCTYPE html>
+<section class="todoapp">
+  <header class="header">
+    <h1>Login!</h1>
+      <%= form_tag(sessions_path) do %>
+        <%= text_field_tag :email, '', :class => "new-todo", :placeholder => "enter your email" %>
+        <%= text_field_tag :password, '', :class => "new-todo", :placeholder => "enter your password" %>
+        <%= submit_tag "Sign in!", :class => "button" %>
+      <% end %>
 
-      <section class="todoapp">
-        <header class="header">
-          <h1>Login!</h1>
-            <%= form_tag(sessions_path) do %>
-              <%= text_field_tag :email, '', :class => "new-todo", :placeholder => "enter your email" %>
-              <%= text_field_tag :password, '', :class => "new-todo", :placeholder => "enter your password" %>
-              <%= submit_tag "Sign in!", :class => "button" %>
-            <% end %>
+      <p><%= link_to image_tag('github-oauth.png'), "/auth/github" %>
+  </header>
 
-            <p><%= link_to image_tag('github-oauth.png'), "/auth/github" %>
-        </header>
+  <footer class="footer">
 
-        <footer class="footer">
-
-        </footer>
-      </section>
+  </footer>
+</section>
