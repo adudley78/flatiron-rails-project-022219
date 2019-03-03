@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authentication_required
-  before_action :current_user
+  before_action :require_login
 
   # render all projects to projects/index.html.erb
   def index
