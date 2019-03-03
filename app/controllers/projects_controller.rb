@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authentication_required
+  before_action :current_user
 
   # render all projects to projects/index.html.erb
   def index
@@ -9,12 +10,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    if current_user
     # only show projects and issues that belong to this user
     # and when a new issue is created associate with the current user
       @project = Project.find(params[:id])
       @issue = Issue.new
-    end
   end
 
   def create
