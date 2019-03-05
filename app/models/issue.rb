@@ -5,6 +5,8 @@ class Issue < ApplicationRecord
   validates :description, :presence => true
   validates :status, :presence => true
 
+  scope :user_issues, -> (user){ where("user_id = ?", user.id) }
+
   STATUS = {
     :incomplete => 0,
     :complete => 1

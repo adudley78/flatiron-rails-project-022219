@@ -12,7 +12,7 @@
   <input class="toggle-all" type="checkbox"></input>
   <label for="toggle-all"></label>
     <ul class="todo-list">
-      <%= render :collection => @project.issues, :partial => "issues/issue_li", :as => :issue %>
+      <%= render :collection => @project.issues.user_issues(current_user), :partial => "issues/issue_li", :as => :issue %>
     </ul>
 </section>
 <footer class="footer">

@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     # and when a new issue is created associate with the current user
       @project = Project.find(params[:id])
       @issue = Issue.new
+      # @issues = Issue.where(:user_id => current_user.id)
   end
 
   def create
