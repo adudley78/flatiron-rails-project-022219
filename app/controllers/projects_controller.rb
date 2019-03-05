@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :authentication_required
-  before_action :require_login
 
   # render all projects to projects/index.html.erb
   def index
@@ -10,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # only show projects and issues that belong to this user
+    # only show issues that belong to this user
     # and when a new issue is created associate with the current user
       @project = Project.find(params[:id])
       @issue = Issue.new
@@ -30,6 +29,13 @@ class ProjectsController < ApplicationController
       render :index
     end
   end
+
+    def destroy
+      @project = Project.find(params[:id])
+      @project.destroy
+
+      redirect_to project_path(@project)
+    end
 
   private
 

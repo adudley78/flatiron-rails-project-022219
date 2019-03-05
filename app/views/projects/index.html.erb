@@ -10,16 +10,8 @@
   <input id="toggle-all" class="toggle-all" type="checkbox">
   <label for="toggle-all"></label>
   <ul class="todo-list">
-    <% @projects.each do |project| %>
-    <li class="view">
-      <div class="view">
-        <input class="toggle" type="checkbox">
-        <label><%= link_to project.name, project_path(project) %></label>
-        <button class="destroy"></button>
-      </div>
-      <input class="edit" value="Test">
-    </li>
-    <% end %>
+    <%= render :collection => @projects, :partial => "projects/project_li", :as => :project %>
+  </ul>
 </section>
 <footer class="footer">
   <span class="todo-count">
