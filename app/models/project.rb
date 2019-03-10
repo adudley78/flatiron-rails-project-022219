@@ -3,7 +3,6 @@ class Project < ApplicationRecord
   has_many :issues
   has_many :users, through: :issues
   validates :name, :presence => true
-  validates :status, :presence => true
 
   STATUS = {
     :incomplete => 0,

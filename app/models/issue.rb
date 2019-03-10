@@ -7,6 +7,8 @@ class Issue < ApplicationRecord
 
   scope :user_issues, -> (user){ where("user_id = ?", user.id) }
 
+  # enum completeness: [:complete, :incomplete]
+
   STATUS = {
     :incomplete => 0,
     :complete => 1

@@ -1,5 +1,5 @@
-// $(function(){
-//   $("input.toggle").on("change", function(){
-//     $(this).parents("form").trigger("submit")
-//   })
-// });
+$(function(){
+  $("input.toggle").on("change", function(){
+    $(this).parents("form").trigger("submit")
+  })
+});

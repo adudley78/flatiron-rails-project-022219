@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Con-U
 
-Things you may want to cover:
+Con-U is Ruby on Rails web app built to help its users, software developers, track their contributions to open source projects.
 
-* Ruby version
+Objectives
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  - Use the Ruby on Rails framework
+  - Practice setting up ActiveRecord associations
+  - Implement attribute validations to defend against invalid data submissions
+  - Practice using chainable scope methods with ActiveRecord query methods
+  - Provide standard user authentication, including signup, login, logout, and passwords and signup and login with Github using OAuth
+  Use a nested resource with the appropriate RESTful URLs
+  - Build forms that correctly display validation errors
+  - Write an application that's DRY
+  - Use helper methods and partials with the views when appropriate

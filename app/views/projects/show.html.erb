@@ -8,17 +8,18 @@
           <%= f.hidden_field :user_id, :value => current_user.id %>
         <% end %>
   </header>
+
 <section class="main">
   <input class="toggle-all" type="checkbox"></input>
-  <label for="toggle-all"></label>
+  <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <%= render :collection => @project.issues.user_issues(current_user), :partial => "issues/issue_li", :as => :issue %>
     </ul>
 </section>
+
 <footer class="footer">
   <span class="todo-count">
-    <!-- make the count work -->
-    <strong><%= @project.issues.size %></strong>
+    <strong><%= @project.issues.length %></strong>
     <span> </span>
     <span>issue(s)</span>
     <span> active</span>

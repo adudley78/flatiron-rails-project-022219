@@ -7,15 +7,15 @@
       <% end %>
   </header>
 <section class="main">
-  <input id="toggle-all" class="toggle-all" type="checkbox">
-  <label for="toggle-all"></label>
+  <!-- <input id="toggle-all" class="toggle-all" type="checkbox"> -->
+  <!-- <label for="toggle-all"></label> -->
   <ul class="todo-list">
     <%= render :collection => @projects, :partial => "projects/project_li", :as => :project %>
   </ul>
 </section>
 <footer class="footer">
   <span class="todo-count">
-  <strong><%= @projects.size %></strong>
+  <strong><%= @projects.length %></strong>
   <span> </span>
   <span>project(s)</span>
   <span> active</span>

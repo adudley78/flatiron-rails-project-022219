@@ -13,7 +13,7 @@ module IssuesHelper
   # Render form_for inline within the method
   def form_for_issue_status(issue)
     form_for([issue.project, issue]) do |f|
-      f.check_box :status, :class => "toggle", :checked => issue.complete?
+      f.check_box :status, :class => "toggle-all", :checked => issue.complete?
     end
   end
 
