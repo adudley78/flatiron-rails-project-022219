@@ -1,10 +1,8 @@
 class IssuesController < ApplicationController
+  before_action :set_issue!, only: [:update, :destroy]
 
   def create
-    # find the parent
     @project = Project.find(params[:project_id])
-    # build the assoation between the project and this new issue
-    # AND build the association between this issue and the current user
     @issue = @project.issues.build(issue_params)
     if @issue.save
 
@@ -16,14 +14,13 @@ class IssuesController < ApplicationController
   end
 
   def update
-    @issue = Issue.find(params[:id])
-    @issue.update(issue_params)
+    # binding.pry
+    @issue.update(:status => @issue.status == 0 ? 1 : 0)
 
     redirect_to project_path(@issue.project)
   end
 
   def destroy
-    @issue = Issue.find(params[:id])
     @issue.destroy
 
     redirect_to project_path(@issue.project)
@@ -32,7 +29,11 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:description, :status, :user_id)
+    params.require(:issue).permit(:description, :status, :user_id, :project_id)
+  end
+
+  def set_issue!
+    @issue = Issue.find(params[:id])
   end
 
 end

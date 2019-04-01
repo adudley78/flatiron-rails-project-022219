@@ -3,6 +3,7 @@
     <%= form_for_issue_status(issue) %>
     <input class="toggle" type="checkbox">
     <label><%= issue.description %></label>
+
     <%= button_to "x", project_issue_path(issue.project, issue), :method => :delete, :class => "destroy" %>
   </div>
 <% end %>

@@ -12,4 +12,5 @@
  *
  *= require 'todomvc-base'
  *= require 'projects'
+ *= require 'issues'
  */
