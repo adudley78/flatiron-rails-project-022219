@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<section class="todoapp">
+<h1>issues</h1>
+    <%= form_for([@project, @issue]) do |f| %>
+      <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit :style => "display: none" %>
+    <% end %>
+</header>
 
-  <header class="header">
-    <h1>issues</h1>
-        <%= form_for([@project, @issue]) do |f| %>
-          <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.submit :style => "display: none" %>
-        <% end %>
-  </header>
-
-<section class="main">
   <input class = "toggle-all" type="checkbox">
   <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
@@ -28,28 +23,3 @@
       </li>
       <% end %>
     </ul>
-</section>
-
-  <footer class="footer">
-    <span class="todo-count">
-      <strong><%= @project.issues.length %></strong>
-      <span> </span>
-      <span>issue(s)</span>
-      <span> active</span>
-    </span>
-    <ul class="filters">
-      <li><a href="#/" class="selected">All</a></li>
-        <span> </span>
-      <li><a href="#/active" class="">Active</a></li>
-        <span> </span>
-      <li><a href="#/archived" class="">Archived</a></li>
-    </ul>
-  </footer>
-
-</section>
-
-<footer class="info">
-  <p>Current project: <strong><%= @project.name %></strong></p>
-  <p>You're logged in as: <%= current_user.email %></p>
-  <p><%= link_to "Logout!", logout_path %>
-</footer>

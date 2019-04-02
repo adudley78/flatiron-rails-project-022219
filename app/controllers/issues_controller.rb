@@ -1,5 +1,10 @@
 class IssuesController < ApplicationController
   before_action :set_issue!, only: [:update, :destroy]
+  before_action :set_project!, only: [:index]
+
+  def index
+    @issues = @project.issues
+  end
 
   def create
     @project = Project.find(params[:project_id])
@@ -34,6 +39,10 @@ class IssuesController < ApplicationController
 
   def set_issue!
     @issue = Issue.find(params[:id])
+  end
+
+  def set_project!
+    @project = Project.find(params[:project_id])
   end
 
 end

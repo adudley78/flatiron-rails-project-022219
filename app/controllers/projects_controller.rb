@@ -7,9 +7,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
-      @project = Project.find(params[:id])
-      # @issue = Issue.new
-      @issue = @project.issues.build
+    @project = Project.find(params[:id])
+    @issues = @project.issues
+    @issue = Issue.new
+    # @issue = @project.issues.build
+
+    # # respond_to do |format|
+    # #   format.html { render :show }
+    # #   format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
+    # # end
   end
 
   def create

@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-
-<h1>Projects</h1>
-<a href="#" onclick="displayCreateForm(); return false;">Create Project</a>
-<a href="#" onclick="getTodos(); return false;">Projects</a>
-<hr>
-<div id="todo-form"></div>
-<div id="main">
-  <ul>
-    <% @projects.each do |project| %>
-      <li><%= project.name %> - <%= project.complete ? 'Completed' : 'Not Completed'%></li>
-    <% end %>
-  </ul>
-</div>
-
 <section class="todoapp">
 
   <header class="header">

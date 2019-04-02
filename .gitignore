@@ -32,4 +32,6 @@
 
 NOTES.md
 
+extra_code.md
+
 /config/initializers/omniauth.rb
