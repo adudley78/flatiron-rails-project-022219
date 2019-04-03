@@ -1,9 +1,15 @@
 class ProjectsController < ApplicationController
 
   def index
-    render json: Project.all
-      # @project = Project.new
-      # @projects = Project.all
+    # render json: Project.all
+    # binding.pry
+    @project = Project.new
+    @projects = Project.all
+    # render 'projects/index', :layout => false
+    respond_to do |format|
+      format.html #{ render 'projects/index', :layout => false }
+      format.json { render :json => @projects }
+    end
   end
 
   def show

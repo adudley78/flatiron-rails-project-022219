@@ -1,4 +1,4 @@
-<section class="todoapp">
+<!-- <section class="todoapp"> -->
 
   <header class="header">
     <h1>projects</h1>
@@ -18,6 +18,11 @@
         <% end %>
         <input class = "toggle" type="checkbox" <%= "checked='checked'" if project.complete? %>>
         <label><%= link_to project.name, project_path(project) %></label>
+
+          <p>
+            <%= link_to "Load Issues", project_issues_path(project), :class => "load_issues" %>
+          </p>
+
       </div>
     </li>
     <% end %>
