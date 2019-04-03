@@ -1,27 +1,73 @@
-// $(function(){
+$(function(){
+
 //   $("input.toggle").on("change", function(){
 //     $(this).parents("form").trigger("submit")
 //   })
 // })
 
-// Loading Comments via AJAX - Replaced by Remote True
-$(function() {
-  $("a.load_issues").on("click", function(e){
-    // Fire some Ajax
-    $.ajax({
-      method: "GET",
-      url: this.href,
-      // http://localhost:3000/projects/24/issues
-    }).done(function(data) {
-      // Get a response (the variable data)
-      console.log(data)
-      debugger
-      // Then load data into the DOM (i.e. add it to the current page)
-    })
-    // alert("You just clicked on the Load Issues Link!")
-    e.preventDefault()
+    // Requesting JSON
+// $.get(this.href).success(function(json){
+//       // clear the OL html (in case there were stale comments)
+//   var $ol = $("div.issues ol")
+//   $ol.html("") // emptied the OL
+//
+//       // iterate over each comment within json
+//   json.forEach(function(issue){
+//         // with each comment data, append an LI to the OL with the comment content
+//     $ol.append("<li>" + issue.description + "</li>")
+//     })
+//   })
+//
+// })
+
+// server-side ajax
+$("a.load_issues").on("click", function(e) {
+  $.ajax ({
+    url: this.href,
+    dataType: 'script'
+  })
+
+  e.preventDefault()
   })
 })
+
+    // load that response into the HTML of the page.
+
+
+    // debugger
+    // $(`div.issues-$(json.items[0].project.id)`)
+
+    // Requesting HTML
+    // $.get(this.href).success(function(response) {
+    //   console.log(response)
+    //   $("div.issues").append(response)
+    // })
+
+    // Requesting JSON
+
+      // clear the OL html in case there were stale comments
+
+      // iterate over each issue in json
+
+        // with each issue data, append an LI to the OL with the issue content
+        // $ol.append("<li>" + issue.description + "</li>")
+
+    // Fire some Ajax
+    // $.ajax({
+    //   method: "GET",
+    //   url: this.href,
+    //   // http://localhost:3000/projects/24/issues
+    // }).success(function(response) {
+    //   // Get a response (the variable response)
+    //   $("div").append(response)
+    //   // console.log(response)
+    //   // debugger
+    //   // Then load data into the DOM (i.e. add it to the current page)
+    // }).error(function() {
+    //   alert("Something broke!")
+    // })
+    // alert("You just clicked on the Load Issues Link!")
+
     // We'd love to use the HREF attribute of that link as the URL for the request
     //
     // Fire some ajax.

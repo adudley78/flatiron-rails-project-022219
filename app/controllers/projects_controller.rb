@@ -1,27 +1,26 @@
 class ProjectsController < ApplicationController
 
   def index
-    # render json: Project.all
-    # binding.pry
     @project = Project.new
     @projects = Project.all
-    # render 'projects/index', :layout => false
+    @issues = @project.issues
     respond_to do |format|
       format.html #{ render 'projects/index', :layout => false }
       format.json { render :json => @projects }
     end
+    # render :index
   end
 
   def show
     @project = Project.find(params[:id])
     @issues = @project.issues
     @issue = Issue.new
-    # @issue = @project.issues.build
+    @issue = @project.issues.build
 
-    # # respond_to do |format|
-    # #   format.html { render :show }
-    # #   format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
-    # # end
+    respond_to do |format|
+      format.html #{ render :show }
+      format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
+    end
   end
 
   def create
