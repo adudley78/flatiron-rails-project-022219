@@ -15,3 +15,11 @@ Objectives
   - Build forms that correctly display validation errors
   - Write an application that's DRY
   - Use helper methods and partials with the views when appropriate
+
+  Application Description
+
+  Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
+
+  Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
+
+  Licensing statement at the bottom (e.g. This project has been licensed under the MIT open source license.)
