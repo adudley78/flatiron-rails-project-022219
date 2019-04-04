@@ -5,8 +5,8 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @issues = @project.issues
     respond_to do |format|
-      format.html #{ render 'projects/index', :layout => false }
-      format.json { render :json => @projects }
+      format.html { render 'index.html' }
+      format.json { render 'index.js' }
     end
     # render :index
   end

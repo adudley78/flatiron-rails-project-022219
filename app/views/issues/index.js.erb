@@ -1,1 +1,7 @@
 // alert("Hello from Rails!")
+// $("div.issues").append("Hello World")
+// $("div.issues").append('<%= @issues.first.description %>')
+
+var html = "<%=j(render('issues/issues')) %>"
+
+$("div.issues").html(html)

@@ -21,15 +21,15 @@ $(function(){
 // })
 
 // server-side ajax
-$("a.load_issues").on("click", function(e) {
-  $.ajax ({
-    url: this.href,
-    dataType: 'script'
-  })
-
-  e.preventDefault()
-  })
-})
+// $("a.load_issues").on("click", function(e) {
+//   $.ajax ({
+//     url: this.href,
+//     dataType: 'script'
+//   })
+//
+//   e.preventDefault()
+//   })
+// })
 
     // load that response into the HTML of the page.
 
