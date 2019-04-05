@@ -3,21 +3,29 @@ $(function(){
   $(".new_todo").on("submit", function(e){
     // alert("You clicked submit!")
     url = this.action
-    // console.log(url)
-    // data: 'script'
-    e.preventDefault()
-  })
-})
-
+    console.log(url)
+    // debugger
+    data = {
+      'authenticity_token': $("input[name='authenticity_token']").val(),
+      'issue': {
+        'description': $('#issue_description').val()
+      }
+    }
+    // console.log(data)
 $.ajax({
   type: "POST",
-  url: this.action,
-  data: 'script',
+  url: url,
+  data: data,
   success: function(response) {
-    var $ol = $("div.issues ol")
-    $ol.append(response)
+    debugger
+    // var $ol = $(".issues")
+    // $ol.append(response)
   }
   // dataType: dataType
+})
+
+    e.preventDefault()
+  })
 })
 
 // Load comments with AJAX and replaced by Remote Ture
