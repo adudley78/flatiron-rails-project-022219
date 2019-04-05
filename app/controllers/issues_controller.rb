@@ -16,7 +16,8 @@ class IssuesController < ApplicationController
     @issue = @project.issues.build(issue_params)
     if @issue.save
 
-      redirect_to project_path(@project)
+      # redirect_to project_path(@project)
+      render 'issues/show'
     else
 
       render "projects/show"

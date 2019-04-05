@@ -3,7 +3,7 @@ $(function(){
   $(".new_todo").on("submit", function(e){
     // alert("You clicked submit!")
     url = this.action
-    console.log(url)
+    // console.log(url)
     // data: 'script'
     e.preventDefault()
   })
@@ -11,10 +11,11 @@ $(function(){
 
 $.ajax({
   type: "POST",
-  url: url,
-  data: data,
+  url: this.action,
+  data: 'script',
   success: function(response) {
-    debugger
+    var $ol = $("div.issues ol")
+    $ol.append(response)
   }
   // dataType: dataType
 })
