@@ -1,6 +1,6 @@
 <h1>issues for project #<%= "#{@project.id}" + ":" %></h1>
 <h2><%= "#{@project.name}" %></h2>
-  <div class="new_todo">
+  <div class="new_todo" id="new_todo">
     <%= form_for([@project, @issue]) do |f| %>
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
