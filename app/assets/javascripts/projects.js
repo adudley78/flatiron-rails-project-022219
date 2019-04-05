@@ -1,10 +1,22 @@
 // Submit issues via Ajax ... to be replaced with remote true as well
 $(function(){
-  $("#new_todo").on("submit", function(e){
-    alert("You clicked submit!")
-
+  $(".new_todo").on("submit", function(e){
+    // alert("You clicked submit!")
+    url = this.action
+    console.log(url)
+    // data: 'script'
     e.preventDefault()
   })
+})
+
+$.ajax({
+  type: "POST",
+  url: url,
+  data: data,
+  success: function(response) {
+    debugger
+  }
+  // dataType: dataType
 })
 
 // Load comments with AJAX and replaced by Remote Ture

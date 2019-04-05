@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   before_action :set_issue!, only: [:update, :destroy]
-  before_action :set_project!, only: [:index]
+  before_action :set_project!, only: [:index, :create]
 
   def index
     @issues = @project.issues
@@ -12,7 +12,7 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
     @issue = @project.issues.build(issue_params)
     if @issue.save
 
