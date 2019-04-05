@@ -4,6 +4,11 @@ class IssuesController < ApplicationController
 
   def index
     @issues = @project.issues
+
+    respond_to do |format|
+      format.html { render 'index.html' }
+      format.json { render 'index.js' }
+    end
   end
 
   def create

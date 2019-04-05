@@ -1,5 +1,5 @@
 <ol>
-  <% @project.issues.each do |issue| %>
-  <li><%= issue.description %></li>
-  <% end %>
+    <% @project.issues.each do |issue| %>
+      <li><%= issue.description %> <%= link_to("delete", project_issue_path(issue.project, issue), :method => "delete") if issue.id %></li>
+    <% end %>
 </ol>

@@ -18,17 +18,18 @@
         <% end %>
         <input class = "toggle" type="checkbox" <%= "checked='checked'" if project.complete? %>>
         <label><%= link_to project.name, project_path(project) %></label>
+        <label><%= link_to("delete project", project_path(project), :method => "delete") if project.id %></label>
 
           <!-- :remote => true = when someone clicks this clink, rails fires ajax request, requesting more js -->
-          <p>
-            <%= link_to "Load Issues", project_issues_path(project), :class => "load_issues", :remote => true %>
-          </p>
+          <!-- <p>
+            <#%= link_to "Load Issues", project_issues_path(project), :class => "load_issues", :remote => true %>
+          </p> -->
 
           <!-- hook json.items[0].project.id -->
-          <div class="issues">
+          <!-- <div class="issues">
             <ol>
             </ol>
-          </div>
+          </div> -->
 
       </div>
     </li>

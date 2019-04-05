@@ -1,26 +1,26 @@
 class ProjectsController < ApplicationController
+  before_action :set_project!, only: [:show, :destroy]
 
   def index
     @project = Project.new
     @projects = Project.all
-    @issues = @project.issues
-    respond_to do |format|
-      format.html { render 'index.html' }
-      format.json { render 'index.js' }
-    end
-    # render :index
+    # @issues = @project.issues
+
+    # respond_to do |format|
+    #   format.html { render 'index.html' }
+    #   format.json { render 'index.js' }
+    # end
   end
 
   def show
-    @project = Project.find(params[:id])
     @issues = @project.issues
     @issue = Issue.new
     @issue = @project.issues.build
 
-    respond_to do |format|
-      format.html #{ render :show }
-      format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
-    end
+    # respond_to do |format|
+    #   format.html #{ render :show }
+    #   format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
+    # end
   end
 
   def create
@@ -31,21 +31,23 @@ class ProjectsController < ApplicationController
     else
       @projects = Project.all
 
-      render :index
     end
   end
 
   def destroy
-    @project = Project.find(params[:id])
     @project.destroy
 
-    render :index
+    redirect_to projects_path
   end
 
   private
 
   def project_params
     params.require(:project).permit(:name)
+  end
+
+  def set_project!
+    @project = Project.find(params[:id])
   end
 
 end
