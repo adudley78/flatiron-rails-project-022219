@@ -17,8 +17,7 @@
           <%= f.check_box :status, :class => "toggle", :checked => (true if project.complete?) %>
         <% end %>
         <input class = "toggle" type="checkbox" <%= "checked='checked'" if project.complete? %>>
-        <label><%= link_to project.name, project_path(project) %></label>
-        <label><%= link_to("delete project", project_path(project), :method => "delete") if project.id %></label>
+        <label><%= link_to project.name, project_path(project) %> <%= link_to("delete", project_path(project), :method => "delete") if project.id %></label>
 
           <!-- :remote => true = when someone clicks this clink, rails fires ajax request, requesting more js -->
           <!-- <p>
