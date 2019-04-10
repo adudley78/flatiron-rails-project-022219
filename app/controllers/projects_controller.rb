@@ -6,10 +6,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     # @issues = @project.issues
 
-    # respond_to do |format|
-    #   format.html { render 'index.html' }
-    #   format.json { render 'index.js' }
-    # end
+    respond_to do |format|
+      format.html { render 'index.html' }
+      format.json { render 'index.js' }
+    end
   end
 
   def show
@@ -27,7 +27,11 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
 
-      redirect_to project_url(@project)
+      # redirect_to project_url(@project)
+      respond_to do |format|
+        format.html { redirect_to project_url(@project) }
+        format.js
+      end
     else
       @projects = Project.all
 
