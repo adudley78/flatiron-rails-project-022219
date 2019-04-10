@@ -1,0 +1,3 @@
+$('#issue_description').val("")
+var $ol = $(".issues ol")
+$ol.append("<%=j(render('issues/issue', :issue => @issue)) %>")

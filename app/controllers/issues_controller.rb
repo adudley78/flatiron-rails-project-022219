@@ -13,13 +13,18 @@ class IssuesController < ApplicationController
 
   def create
     # @project = Project.find(params[:project_id])
+    # @issue = current_user.issues.new(params[:issue])
     @issue = @project.issues.build(issue_params)
     if @issue.save
-
-      # redirect_to project_path(@project)
-      render 'issues/show'
+      # binding.pry
+      # render 'projects/show'
+      # render 'create.js'
+      respond_to do |format|
+        format.html { redirect_to project_path(@project) }
+        format.js
+      end
     else
-
+      binding.pry
       render "projects/show"
     end
   end

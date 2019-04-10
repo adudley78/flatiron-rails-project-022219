@@ -1,25 +1,28 @@
 // Submit issues via Ajax ... to be replaced with remote true as well
-$(function(){
-  $(".new_todo").on("submit", function(e){
-    // alert("You clicked submit!")
-    url = this.action
-    console.log(url)
-    // debugger
-    data = {
-      'authenticity_token': $("input[name='authenticity_token']").val(),
-      'issue': {
-        'description': $('#issue_description').val()
-      }
-    }
-    // console.log(data)
+// $(function(){
+//   $(".new_todo").on("submit", function(e){
+//     // alert("You clicked submit!")
+//     // url =
+//     // console.log(url)
+//     // debugger
+//     // data =
+//     // debugger
+//     // {
+//     //   'authenticity_token': $("input[name='authenticity_token']").val(),
+//     //   'issue': {
+//     //     'description': $('#issue_description').val(),
+//     //     'user_id': $('#issue_user_id').val()
+//     //   }
+//     // console.log(data)
 $.ajax({
-  type: "POST",
-  url: url,
-  data: data,
+  type: ($("input[name='_method']").val() || this.method),
+  url: this.action,
+  data: $(this).serialize(),
   success: function(response) {
-    debugger
-    // var $ol = $(".issues")
-    // $ol.append(response)
+    // debugger
+    $('#issue_description').val("")
+    var $ol = $(".issues ol")
+    $ol.append(response)
   }
   // dataType: dataType
 })

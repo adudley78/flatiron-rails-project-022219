@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def show
     @issues = @project.issues
     @issue = Issue.new
-    @issue = @project.issues.build
+    # @issue = @project.issues.build
 
     # respond_to do |format|
     #   format.html #{ render :show }
