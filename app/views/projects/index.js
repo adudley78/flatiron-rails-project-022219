@@ -21,9 +21,22 @@ class Project {
     `
   }
   static listProjects() {
-    let list = document.getElementByID{'list'}
+    let list = document.getElementById{'list'}
     list.innerHTML = " "
     Project.all.forEach(project => list.innerHTML += project.render())
+}
+}
+
+function createProjects() {
+  // send fetch to index and iterate
+  let name = document.getElementById('#project_name').val()
+
+  let project = new Project(name)
+
+  document.getElementById("name").value = ""
+
+Project.listProjects()
+
 }
 
 // Project.protoype.render = function () {
@@ -41,15 +54,3 @@ class Project {
 // }
 
 // Project.all = []
-
-function createProject() {
-
-let name = document.getElementByID('name').val()
-
-let project = new Project(name)
-
-document.getElementByID("name).value = ""
-
-Project.listProjects()
-
-}
