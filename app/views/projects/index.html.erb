@@ -3,34 +3,20 @@
   <header class="header">
 
     <h1>projects</h1>
-      <%= form_for(@project) do |f| %>
+      <%= form_for((@project), :html => {:class => "form"}) do |f| %>
         <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
         <%= f.submit :style => "display: none" %>
       <% end %>
 
-        <div id="postResult">
+        <!-- <div id="postResult">
           <h2 id="projectName"></h2>
-        </div>
+        </div> -->
 
   </header>
 
-<section class="main">
-  <ul class="todo-list">
-    <% @projects.each do |project| %>
-
-    <li class = "<%= "completed" if project.complete? %>">
-      <div class="view">
-        <%= form_for([project]) do |f| %>
-          <%= f.check_box :status, :class => "toggle", :checked => (true if project.complete?) %>
-        <% end %>
-        <input class = "toggle" type="checkbox" <%= "checked='checked'" if project.complete? %>>
-        <label><%= link_to project.name, project_path(project) %> <%= link_to("delete", project_path(project), :method => "delete") if project.id %></label>
-      </div>
-    </li>
-
-    <% end %>
-  </ul>
-</section>
+  <div class="projects">
+      <%= render 'projects/projects' %>
+  </div>
 
   <footer class="footer">
     <span class="todo-count">

@@ -26,12 +26,12 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      render json: @project, status: 201
+      # render json: @project, status: 201
       # redirect_to project_url(@project)
-      # respond_to do |format|
-      #   format.html { redirect_to project_url(@project) }
-      #   format.js
-      # end
+      respond_to do |format|
+        format.html { redirect_to project_path}
+        format.js
+      end
     else
       @projects = Project.all
 
