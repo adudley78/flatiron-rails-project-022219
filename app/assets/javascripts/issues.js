@@ -1,13 +1,15 @@
-// $(function(){
-//   $("input.toggle").on("change", function(){
-//     $(this).parents("form").trigger("submit")
-//   })
-// });
-
-// $(function(){
-//   $("#new_todo").on("submit", function(e){
-//     alert("You clicked submit!")
-//
-//     e.preventDefault()
-//   })
-// })
+$(function(){
+  $("#new_issue").on("submit", function(e){
+$.ajax({
+  type: ($("input[name='_method']").val() || this.method),
+  url: this.action,
+  data: $(this).serialize(),
+  success: function(response) {
+    $('#issue_description').val("")
+    var $ol = $(".issues ol")
+    $ol.append(response)
+  }
+})
+e.preventDefault()
+})
+})

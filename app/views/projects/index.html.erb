@@ -8,15 +8,44 @@
         <%= f.submit :style => "display: none" %>
       <% end %>
 
-    <script type="text/javascript" charset="utf-8">
-      $(function () {
-        $('form').submit(function(event) {
-          //prevent form from submitting the default way
-          event.preventDefault();
-          alert("we r hack3rz");
-        });
-      });
-    </script>
+        <div id="postResult">
+          <h2 id="projectName"></h2>
+        </div>
+
+    <!-- <script type="text/javascript" charset="utf-8">
+      $(function(){
+        $("#new_project").on("submit", function(e){
+      $.ajax({
+        type: ($("input[name='_method']").val() || this.method),
+        url: this.action,
+        data: $(this).serialize(),
+        success: function(response) {
+          $('#projectName').val("")
+          var $h2 = $(".projects div")
+          $h2.append(response)
+        }
+      })
+      e.preventDefault()
+      })
+      }) -->
+      <!-- // $(function () {
+      //   $('form').submit(function(event) {
+      //     //prevent form from submitting the default way
+      //     event.preventDefault();
+      //     // alert("we r hack3rz");
+      //     var values = $(this).serialize()
+      //
+      //     var posting = $.post('/projects', values)
+      //     // debugger
+      //     posting.done(function(data) {
+      //       // TODO: handle response
+      //       // console.log(data)
+      //       var project = data
+      //       $("projectName").text(project["name"])
+      //     })
+      //   });
+      // }); -->
+    <!-- </script> -->
 
   </header>
 
