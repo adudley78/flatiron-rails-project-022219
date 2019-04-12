@@ -1,19 +1,3 @@
-// $(function(){
-//   $("#new_project").on("submit", function(e){
-// $.ajax({
-//   type: ($("input[name='_method']").val() || this.method),
-//   url: this.action,
-//   data: $(this).serialize(),
-//   success: function(response) {
-//     $('#project_name').val("")
-//     var $ul = $(".projects ul")
-//     $ul.append(response)
-//   }
-// })
-// e.preventDefault()
-// })
-// })
-
 $(function () {
   $('form').submit(function(event) {
     //prevent form from submitting the default way
