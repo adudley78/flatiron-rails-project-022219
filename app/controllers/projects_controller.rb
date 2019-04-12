@@ -6,10 +6,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     # @issues = @project.issues
 
-    respond_to do |format|
-      format.html { render 'index.html' }
-      format.json { render 'index.js' }
-    end
+    # respond_to do |format|
+    #   format.html { render 'index.html' }
+    #   format.json { render 'index.js' }
+    # end
   end
 
   def show
@@ -17,21 +17,23 @@ class ProjectsController < ApplicationController
     @issue = Issue.new
     # @issue = @project.issues.build
 
-    # respond_to do |format|
-    #   format.html #{ render :show }
-    #   format.json { render json: @project.issues.build.to_json(only: [:id, :description, :status])}
-    # end
+    respond_to do |format|
+      format.html
+      format.json { render json: @project}
+    end
   end
 
   def create
     @project = Project.new(project_params)
     if @project.save
       # render json: @project, status: 201
+      # render json: @project.as_json
       # redirect_to project_url(@project)
       respond_to do |format|
-        format.html { redirect_to project_path}
-        format.js
+        format.html { render :html => @project.name }
+        format.json { render :json => @project }
       end
+      # render json: @project.to_json(only: [:name])
     else
       @projects = Project.all
 

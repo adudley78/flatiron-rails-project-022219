@@ -16,15 +16,15 @@ class IssuesController < ApplicationController
     # @issue = current_user.issues.new(params[:issue])
     @issue = @project.issues.build(issue_params)
     if @issue.save
-      # binding.pry
       # render 'projects/show'
       # render 'create.js'
       respond_to do |format|
         format.html { redirect_to project_path(@project) }
-        format.js
+        format.js { redirect_to project_path(@project) }
+        # binding.pry
       end
     else
-      binding.pry
+      # binding.pry
       render "projects/show"
     end
   end

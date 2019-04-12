@@ -3,15 +3,11 @@
   <header class="header">
 
     <h1>projects</h1>
-      <%= form_for((@project), :html => {:class => "form"}) do |f| %>
+      <%= form_for((@project), :html => {:class => "new_todo"}) do |f| %>
         <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
         <%= f.submit :style => "display: none" %>
       <% end %>
-
-        <!-- <div id="postResult">
-          <h2 id="projectName"></h2>
-        </div> -->
-
+      
   </header>
 
   <div class="projects">

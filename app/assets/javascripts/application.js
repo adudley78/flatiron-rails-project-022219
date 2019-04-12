@@ -13,3 +13,4 @@
 //= require rails-ujs
 //= require jquery
 //= require projects
+//= require issues
