@@ -20,7 +20,8 @@ class IssuesController < ApplicationController
       # render 'create.js'
       respond_to do |format|
         format.html { redirect_to project_path(@project) }
-        format.js { redirect_to project_path(@project) }
+        # format.js { redirect_to project_path(@project) }
+        format.json { render :json => @issue }
         # binding.pry
       end
     else

@@ -14,3 +14,4 @@
 //= require jquery
 //= require projects
 //= require issues
+//= require handlebars-v4.1.2

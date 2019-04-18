@@ -1,7 +1,7 @@
 
 <h1>issues for project #<span id="project-id"><%=@project.id%></span>:</h1>
 <h2><%= "#{@project.name}" %></h2>
-  <!-- <div class="new_todo" id="new_todo"> -->
+  <!-- Rails looks at @issue and assigns id="new_issue" to form (see issues.js) -->
     <%= form_for([@project, @issue], :html => {:class => "new_todo"}) do |f| %>
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -12,7 +12,7 @@
   <!-- <input class = "toggle-all" type="checkbox"> -->
   <!-- <label for="toggle-all">Mark all as complete</label> -->
 <div class="issues">
-    
+
 </div>
 
 <p><%= link_to "Back to Projects List", projects_path %></p>
