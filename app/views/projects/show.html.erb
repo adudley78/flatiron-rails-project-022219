@@ -19,7 +19,7 @@
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
-      <%= render :collection => @project.issues, :partial => "issues/issues", :as => :issue %>
+      <%= render :collection => @project.issues, :partial => "issues/issue", :as => :issue %>
     </ul>
   </section>
   <footer class="footer">

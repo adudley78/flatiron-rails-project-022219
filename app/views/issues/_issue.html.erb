@@ -1,1 +1,1 @@
-<li><%= issue.description %></li>
+<li><%= issue.description %> <%= link_to("delete", project_issue_path(issue.project, issue), :method => "delete") if issue.id %></li>

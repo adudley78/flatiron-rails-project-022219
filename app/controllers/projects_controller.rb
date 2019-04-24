@@ -30,7 +30,9 @@ class ProjectsController < ApplicationController
       # render json: @project.as_json
       # redirect_to project_url(@project)
       respond_to do |format|
-        format.html { render :html => @project.name }
+        # format.html { render :html => @project.name }
+        # format.json { render :json => @project }
+        format.html { redirect_to project_path(@project) }
         format.json { render :json => @project }
       end
       # render json: @project.to_json(only: [:name])
