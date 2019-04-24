@@ -29,14 +29,14 @@
   <script id="project-template" type="text/x-handlebars-template">
     <li class="project" id="project_{{id}}">
       <div class="view">
-        <form class="edit_project" id="edit_project_{{id}}" action="/projects/<%= @project.id %>/projects/{{id}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+        <form class="edit_project" id="edit_project_{{id}}" action="/projects/{{id}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
           <input type="hidden" name="_method" value="patch">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <input name="project[status]" type="hidden" value="0"><input class="toggle" type="checkbox" value="1" name="project[status]" id="project_status"></form>
 
         <label>{{description}}</label>
 
-        <form class="button_to" method="post" action="/projects/<%= @project.id %>/projects/{{id}}">
+        <form class="button_to" method="post" action="/projects/{{id}}">
           <input type="hidden" name="_method" value="delete">
           <input class="destroy" type="submit" value="x">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

@@ -21,6 +21,7 @@ class IssuesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to project_path(@project) }
         # format.js { redirect_to project_path(@project) }
+        # render a json representation of the issue to the view
         format.json { render :json => @issue }
         # binding.pry
       end
