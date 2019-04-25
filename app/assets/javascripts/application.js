@@ -12,6 +12,6 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require handlebars-v4.1.2
 //= require projects
 //= require issues
-//= require handlebars-v4.1.2

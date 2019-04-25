@@ -13,7 +13,6 @@ Issue.success = function(json){
 
   // Inject li into ul
   $("ul.todo-list").append(issueLi)
-  render issue
 }
 
 Issue.error = function(response){
@@ -80,9 +79,11 @@ Issue.formSubmitListener = function(){
 // On doc ready build component from json object and inject into DOM as HTML using handlebars template
 Issue.ready = function(){
   // Read HTML from template
+
   Issue.templateSource = $("#issue-template").html()
   // Convert into a function that can render the HTML template
-  Issue.template = Handlebars.compile(Issue.templateSource);
+  // debugger
+  Issue.template = Issue.templateSource ? Handlebars.compile(Issue.templateSource) : null
   Issue.formSubmitListener()
   Issue.destroyListener()
 }
@@ -90,10 +91,12 @@ Issue.ready = function(){
 // Give template to prototype so it knows how to compile versions of itself and give it instance methods that return HTML we inject
 // Properties of this has properties that correspond to handlebars template
 Issue.prototype.renderLI = function(){
+
   return Issue.template(this)
 }
 
 $(function(){
+  // debugger
   Issue.ready()
 })
 
@@ -108,7 +111,7 @@ $(function(){
 //   Issue.template = Handlebars.compile(Issue.templateSource)
 // })
 //
-// // Issue.template({description: "New Project Issue"})
+// // Issue.template({description: "New Issue Issue"})
 //
 // Issue.prototype.renderLi = function() {
 //   return Issue.template(this)

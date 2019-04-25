@@ -6,9 +6,9 @@ function Project(attributes){
 Project.success = function(json){
   var project = new Project(json);
   var projectLi = project.renderLI()
-
+  // debugger
   $("ul.todo-list").append(projectLi)
-  render project
+  // render project
 }
 
 Project.error = function(response){
@@ -66,9 +66,11 @@ Project.formSubmitListener = function(){
 
 Project.ready = function(){
   Project.templateSource = $("#project-template").html()
-  Project.template = Handlebars.compile(Project.templateSource);
+  // debugger
+  Project.template = Project.templateSource ? Handlebars.compile(Project.templateSource) : null
   Project.formSubmitListener()
   Project.destroyListener()
+  // debugger
 }
 
 Project.prototype.renderLI = function(){
