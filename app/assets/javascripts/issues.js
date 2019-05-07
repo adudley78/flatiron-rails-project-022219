@@ -91,7 +91,6 @@ Issue.ready = function(){
 // Give template to prototype so it knows how to compile versions of itself and give it instance methods that return HTML we inject
 // Properties of this has properties that correspond to handlebars template
 Issue.prototype.renderLI = function(){
-
   return Issue.template(this)
 }
 

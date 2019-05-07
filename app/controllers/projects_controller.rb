@@ -5,11 +5,14 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @projects = Project.all
     # @issues = @project.issues
-
+    # render json: @projects
+    respond_to do |format|
+      format.html
+      format.json { render json: @projects}
     # respond_to do |format|
     #   format.html { render 'index.html' }
     #   format.json { render 'index.js' }
-    # end
+    end
   end
 
   def show
