@@ -29,24 +29,24 @@
 <p><%= link_to "Back to Projects List", projects_path %></p>
 
 
-<script id="issue-template" type="text/x-handlebars-template">
+<!-- <script id="issue-template" type="text/x-handlebars-template">
   <li class="issue" id="issue_{{id}}">
     <div class="view">
-      <form class="edit_issue" id="edit_issue_{{id}}" action="/projects/<%= @project.id %>/issues/{{id}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+      <form class="edit_issue" id="edit_issue_{{id}}" action="/projects/<#%= @project.id %>/issues/{{id}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="_method" value="patch">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <#%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <input name="issue[status]" type="hidden" value="0"><input class="toggle" type="checkbox" value="1" name="issue[status]" id="issue_status"></form>
 
       <label>{{description}}</label>
 
-      <form class="button_to" method="post" action="/projects/<%= @project.id %>/issues/{{id}}">
+      <form class="button_to" method="post" action="/projects/<#%= @project.id %>/issues/{{id}}">
         <input type="hidden" name="_method" value="delete">
         <input class="destroy" type="submit" value="x">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <#%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       </form>
     </div>
   </li>
-</script>
+</script> -->
 
 <!-- <script id="entry-template" type="text/x-handlebars-template">
   <div class="entry">
