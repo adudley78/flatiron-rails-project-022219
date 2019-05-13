@@ -4,6 +4,11 @@ function Issue(attributes){
   this.id = attributes.id;
 }
 
+// fetch('http://localhost:3000/projects.json')
+//   // what is my data source and at what URL is it?
+//   .then(response => response.json())
+//   .then(json => console.log(json))
+
 // Render the li of the new issue upon successful form submission
 Issue.success = function(json){
   // Create/instantiate new JS object from json of the issue that was just created

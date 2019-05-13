@@ -3,6 +3,17 @@ function Project(attributes){
   this.id = attributes.id;
 }
 
+
+fetch('http://localhost:3000/projects.json')
+  .then(response => response.json())
+  // .then(json => console.log(JSON.stringify(json)))
+  .then(json => showResults(json))
+
+function showResults(json) {
+  document.getElementById('li').innerHTML = `<a href=${json.html_url}>${json.html_url}</a>`;
+}
+
+
 Project.success = function(json){
   var project = new Project(json);
   var projectLi = project.renderLI()
