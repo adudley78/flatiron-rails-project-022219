@@ -6,18 +6,14 @@
   </head>
   <body>
 
-<!-- <section class="todoapp"> -->
-
-  <!-- <header class="header"> -->
-
-  <section>
-    <h1>projects</h1>
-      <%= form_for((@project), :html => {:class => "new_todo"}) do |f| %>
-        <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit :style => "display: none" %>
-      <% end %>
-  </section>
+    <section>
+      <h1>projects</h1>
+        <%= form_for((@project), :html => {:class => "new_todo"}) do |f| %>
+          <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.submit :style => "display: none" %>
+        <% end %>
+    </section>
 
   <!-- </header> -->
 
@@ -35,16 +31,18 @@
     </div>
   </section>
 
-  <!-- <section class="main">
+  <section class="main">
       <input class="toggle-all" type="checkbox">
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        <@%= render :collection => @projects, :partial => "projects/project", :as => :project %>
+        <%= render :collection => @projects, :partial => "projects/project", :as => :project %>
       </ul>
-    </section>
+  </section>
+
+  <section>
     <footer class="footer">
     </footer>
-  </section> %> -->
+  </section>
 
   <!-- <script id="project-template" type="text/x-handlebars-template">
     <li class="project" id="project_{{id}}">
