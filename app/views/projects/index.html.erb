@@ -1,13 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Projects | Flatiron Rails/JS Project</title>
+  </head>
+  <body>
+
 <!-- <section class="todoapp"> -->
 
   <!-- <header class="header"> -->
 
+  <section>
     <h1>projects</h1>
       <%= form_for((@project), :html => {:class => "new_todo"}) do |f| %>
         <%= f.text_field :name, :class => "new-todo", :placeholder => (@project.errors.full_messages_for(:name).first || "add a project") %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit :style => "display: none" %>
       <% end %>
+  </section>
 
   <!-- </header> -->
 
@@ -15,16 +25,26 @@
       <#%= render 'projects/projects' %>
   </div> -->
 
-  <section class="main">
+  <section>
+    <div class="projects">
+      <ol class="project-list">
+        <li class="project_name">
+
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- <section class="main">
       <input class="toggle-all" type="checkbox">
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        <%= render :collection => @projects, :partial => "projects/project", :as => :project %>
+        <@%= render :collection => @projects, :partial => "projects/project", :as => :project %>
       </ul>
     </section>
     <footer class="footer">
     </footer>
-  </section>
+  </section> %> -->
 
   <!-- <script id="project-template" type="text/x-handlebars-template">
     <li class="project" id="project_{{id}}">
@@ -45,24 +65,30 @@
     </li>
   </script> -->
 
-  <footer class="footer">
-    <span class="todo-count">
-    <strong><%= @projects.length %></strong>
-    <span> </span>
-    <span>project(s)</span>
-    <span> active</span>
-    </span>
-    <ul class="filters">
-      <li><a href="#/" class="selected">All</a></li>
-        <span> </span>
-      <li><a href="#/active" class="">Active</a></li>
-        <span> </span>
-      <li><a href="#/archived" class="">Archived</a></li>
-    </ul>
-  </footer>
+  <section>
+    <footer class="footer">
+      <span class="todo-count">
+      <strong><%= @projects.length %></strong>
+      <span> </span>
+      <span>project(s)</span>
+      <span> active</span>
+      </span>
+      <ul class="filters">
+        <li><a href="#/" class="selected">All</a></li>
+          <span> </span>
+        <li><a href="#/active" class="">Active</a></li>
+          <span> </span>
+        <li><a href="#/archived" class="">Archived</a></li>
+      </ul>
+    </footer>
 </section>
 
-  <footer class="info">
-    <p>You're logged in as: <%= current_user.email %></p>
-    <p><%= link_to "Logout!", logout_path %>
-  </footer>
+  <section>
+    <footer class="info">
+      <p>You're logged in as: <%= current_user.email %></p>
+      <p><%= link_to "Logout!", logout_path %>
+    </footer>
+  </section>
+
+</body>
+</html>
