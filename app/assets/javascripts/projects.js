@@ -1,47 +1,4 @@
-// Class responsible for creating new projects
-class CreateProjects
 
-  function Project(attributes){
-    this.description = attributes.description;
-    this.id = attributes.id;
-  }
-
-  CreateProjects.success = function(json){
-    var project = new CreateProjects(json);
-    var projectLi = project.renderLI()
-    // debugger
-    $("ul.todo-list").append(projectLi)
-    // render project
-  }
-
-  CreateProjects.error = function(response){
-    console.log("Yu broke it?", response)
-  }
-
-  CreateProjects.formSubmit = function(e){
-    e.preventDefault()
-    var $form = $(this);
-    var action = $form.attr("action");
-    var params = $form.serialize();
-
-    $.ajax({
-      url: action,
-      data: params,
-      dataType: "json",
-      method: "POST"
-    })
-    .success(CreateProjects.success)
-    .error(CreateProjects.error)
-  }
-}
-
-CreateProjects.prototype.$li = function(){
-  return $("li#project_"+this.id)
-}
-
-CreateProjects.formSubmitListener = function(){
-  $('form#new_project').on("submit", CreateProjects.formSubmit)
-}
 
 
 // Class responsible for getting and operating on a list of projects from internal API
@@ -67,7 +24,7 @@ getProjects() {
     }
   }
 
-// Class responsible for represent projects
+// Class responsible for representing projects
 class Project {
   static all = []
 
