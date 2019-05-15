@@ -1,13 +1,56 @@
-// Class responsible for getting and operating on a list of projects from a Medicare Advantage API
+// Class responsible for creating new projects
+class CreateProjects
+
+  function Project(attributes){
+    this.description = attributes.description;
+    this.id = attributes.id;
+  }
+
+  CreateProjects.success = function(json){
+    var project = new CreateProjects(json);
+    var projectLi = project.renderLI()
+    // debugger
+    $("ul.todo-list").append(projectLi)
+    // render project
+  }
+
+  CreateProjects.error = function(response){
+    console.log("Yu broke it?", response)
+  }
+
+  CreateProjects.formSubmit = function(e){
+    e.preventDefault()
+    var $form = $(this);
+    var action = $form.attr("action");
+    var params = $form.serialize();
+
+    $.ajax({
+      url: action,
+      data: params,
+      dataType: "json",
+      method: "POST"
+    })
+    .success(CreateProjects.success)
+    .error(CreateProjects.error)
+  }
+}
+
+CreateProjects.prototype.$li = function(){
+  return $("li#project_"+this.id)
+}
+
+CreateProjects.formSubmitListener = function(){
+  $('form#new_project').on("submit", CreateProjects.formSubmit)
+}
+
+
+// Class responsible for getting and operating on a list of projects from internal API
 class ProjectsAPI {
   constructor() {
     this.endpoint = 'http://localhost:3000/projects.json'
   }
 
 getProjects() {
-  // Work around for CORS issue that inhibited response
-  // const proxyurl = 'https://immense-wildwood-59567.herokuapp.com/'
-
   // Make request to API endpoint for list of projects
   fetch(this.endpoint)
     // Translate response to JSON
@@ -15,7 +58,7 @@ getProjects() {
     // Iterated through the returned JSON items
     .then(data => {
       data.forEach(project => {
-        // Create a new Medical Advantage project for each JSON item
+        // Create a new project for each JSON item
         new Project(project.name)
       })
       // Render all items to the ol element in the DOM
@@ -35,7 +78,7 @@ class Project {
     }
   }
 
-  // Render each <tr> (a project) to the tobody in the DOM
+  // Render each <tr> (a project) to the ol in the DOM
   render(i) {
     let ol = document.querySelector('ol')
     let html = `
