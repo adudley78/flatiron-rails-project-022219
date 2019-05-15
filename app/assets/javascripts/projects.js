@@ -39,7 +39,7 @@ class Project {
   render(i) {
     let ol = document.querySelector('ol')
     let html = `
-      <li>${i + 1}. ${this.name}</li>
+      <li>${this.name}</li>
     `
     ol.innerHTML += html
   }
@@ -59,60 +59,12 @@ class Project {
   }
 }
 
-// Filter all the projects
-// const list = document.querySelector('#project-list ol')
-// const forms = document.forms
-
-// // Create refererence to search form
-// const searchBar = forms['search-projects'].querySelector('input')
-// // Listen for keyboard event
-// searchBar.addEventListener('keyup', (e) => {
-//   // Store user input
-//   const term = e.target.value.toLowerCase()
-//   // Store all <tr> (projects) in the list of projects
-//   const projects = list.getElementsByTagName('tr')
-//   // Iterate over a new array of projects to find names that match user search
-//   Array.from(projects).forEach((project) => {
-//     // Store text of project name
-//     const name = project.firstElementChild.textContent
-//     // Get position of term within string
-//     if(name.toLowerCase().indexOf(e.target.value) != -1){
-//       project.style.display = 'block'
-//     } else {
-//       project.style.display = 'none'
-//     }
-//   })
-// })
-
 // Instantiate a new instance of ProjectsAPI upon page load
 window.addEventListener("load", function() {
   new ProjectsAPI().getProjects()
-
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// OLD
 
 // function Project(attributes){
 //   this.description = attributes.description;
