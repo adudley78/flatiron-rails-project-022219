@@ -1,12 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Issues | Flatiron Rails/JS Project</title>
+  </head>
+  <body>
 
-<h1>issues for project #<span id="project-id"><%=@project.id%></span>:</h1>
-<h2><%= "#{@project.name}" %></h2>
-  <!-- Rails looks at @issue and assigns id="new_issue" to form (see issues.js) -->
-    <%= form_for([@project, @issue], :html => {:class => "new_todo"}) do |f| %>
-      <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit :style => "display: none" %>
-    <% end %>
+<section>
+  <header>
+    <div class="">
+      <h1>issues for project #<span id="project-id"><%=@project.id%></span>:</h1>
+      <h2><%= "#{@project.name}" %></h2>
+        <!-- Rails looks at @issue and assigns id="new_issue" to form (see issues.js) -->
+          <%= form_for([@project, @issue], :html => {:class => "new_todo"}) do |f| %>
+            <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit :style => "display: none" %>
+          <% end %>
+    </div>
+  </header>
+</section>
   <!-- </div> -->
 
   <!-- <input class = "toggle-all" type="checkbox"> -->
@@ -93,3 +106,6 @@
 <p>You're logged in as: <%= current_user.email %></p>
 <p><%= link_to "Logout!", logout_path %>
 </footer>
+
+</body>
+</html>

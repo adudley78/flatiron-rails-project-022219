@@ -18,13 +18,15 @@
   <section class="main">
       <input class="toggle-all" type="checkbox">
       <label for="toggle-all">Mark all as complete</label>
-      <ul class="todo-list">
-        <%= render :collection => @projects, :partial => "projects/project", :as => :project %>
-      </ul>
-    </section>
+        <ul class="todo-list">
+          <%= render :collection => @projects, :partial => "projects/project", :as => :project %>
+        </ul>
+  </section>
+
+  <!-- <section>
     <footer class="footer">
     </footer>
-  </section>
+  </section> -->
 
   <footer class="footer">
     <span class="todo-count">
