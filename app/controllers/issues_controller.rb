@@ -7,7 +7,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       format.html { render 'index.html' }
-      format.json { render 'index.js' }
+      format.json { render :json => @issues }
     end
   end
 
