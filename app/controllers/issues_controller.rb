@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
     @issues = @project.issues
 
     respond_to do |format|
-      format.html { render 'index.html' }
+      format.html { render :json => @issues }
       format.json { render :json => @issues }
     end
   end

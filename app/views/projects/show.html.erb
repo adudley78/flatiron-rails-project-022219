@@ -3,111 +3,85 @@
   <head>
     <meta charset="utf-8">
     <title>Issues | Flatiron Rails/JS Project</title>
-  </head>
-  <body>
+</head>
+<body>
 
-<section>
-  <header>
-    <div class="">
-      <h1>issues for project #<span id="project-id"><%=@project.id%></span>:</h1>
-      <h2><%= "#{@project.name}" %></h2>
-        <!-- Rails looks at @issue and assigns id="new_issue" to form (see issues.js) -->
-          <%= form_for([@project, @issue], :html => {:class => "new_todo"}) do |f| %>
-            <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit :style => "display: none" %>
-          <% end %>
-    </div>
-  </header>
-</section>
-  <!-- </div> -->
+  <section>
+    <header>
+      <div class="">
+        <h1>issues for project #<span id="project-id"><%=@project.id%></span>:</h1>
+        <h2><%= "#{@project.name}" %></h2>
+          <!-- Rails looks at @issue and assigns id="new_issue" to form (see issues.js) -->
+            <%= form_for([@project, @issue], :html => {:class => "new_todo"}) do |f| %>
+              <%= f.text_field :description, :class => "new-todo", :placeholder => (@issue.errors.full_messages_for(:description).first || "add an issue") %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <!-- <input class = "toggle-all" type="checkbox"> -->
-  <!-- <label for="toggle-all">Mark all as complete</label> -->
-<!-- <div class="issues">
-
-</div> -->
-
-<section class="main">
-    <input class="toggle-all" type="checkbox">
-    <label for="toggle-all">Mark all as complete</label>
-    <ul class="todo-list">
-      <%= render :collection => @project.issues, :partial => "issues/issue", :as => :issue %>
-    </ul>
+              <%= f.submit :style => "display: none" %>
+            <% end %>
+      </div>
+    </header>
   </section>
 
-<!-- <section>
-  <footer class="footer">
-  </footer>
-</section> -->
-
-<p><%= link_to "Back to Projects List", projects_path %></p>
-
-
-<script id="issue-template" type="text/x-handlebars-template">
-  <li class="issue" id="issue_{{id}}">
-    <div class="view">
-      <form class="edit_issue" id="edit_issue_{{id}}" action="/projects/<%= @project.id %>/issues/{{id}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="_method" value="patch">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input name="issue[status]" type="hidden" value="0"><input class="toggle" type="checkbox" value="1" name="issue[status]" id="issue_status"></form>
-
-      <label>{{description}}</label>
-
-      <form class="button_to" method="post" action="/projects/<%= @project.id %>/issues/{{id}}">
-        <input type="hidden" name="_method" value="delete">
-        <input class="destroy" type="submit" value="x">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      </form>
-    </div>
-  </li>
-</script>
-
-<!-- <script id="entry-template" type="text/x-handlebars-template">
-  <div class="entry">
-    <h1>{{title}}</h1>
-    <div class="body">
-      {{body}}
-    </div>
-  </div>
-</script> -->
-
-<!-- <form class="new_todo" id="new_issue" action="/projects/79/issues" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="c536G6Szcn8y/e5ZgVfiZaTU1gdmNub76B2S5q1U9yX3l1Mg2C2mAsSf/FMiKmRjf/IgtxiyzEPNEXmFS2J1qQ==">
-      <input class="new-todo" placeholder="add an issue" type="text" name="issue[description]" id="issue_description">
-      <input value="1" type="hidden" name="issue[user_id]" id="issue_user_id">
-      <input type="submit" name="commit" value="Create Issue" style="display: none" data-disable-with="Create Issue">
-</form> -->
-
-<!-- <ol>
-  <#% @issues.each do |issue| %>
-  <li><#%= issue.description %> <#%= link_to("delete", project_issue_path(issue.project, issue), :method => "delete") if issue.id %></li>
-  <#% end %>
-</ol> -->
-
-
-<footer class="footer">
-  <span class="todo-count">
-    <strong><%= @project.issues.length %></strong>
-    <span> </span>
-    <span>issue(s)</span>
-    <span> active</span>
-  </span>
-  <ul class="filters">
-    <li><a href="#/" class="selected">All</a></li>
-      <span> </span>
-    <li><a href="#/active" class="">Active</a></li>
-      <span> </span>
-    <li><a href="#/archived" class="">Archived</a></li>
+  <!-- <section class="main">
+  <input class="toggle-all" type="checkbox">
+  <label for="toggle-all">Mark all as complete</label>
+  <ul class="todo-list">
+    <#%= render :collection => @project.issues, :partial => "issues/issue", :as => :issue %>
   </ul>
-</footer>
+  </section> -->
 
-</section>
+  <section class="main">
+    <div class="view">
+      <ul class="todo-list">
+        <li>
+          <div class="view">
+            <label></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-<footer class="info">
-<p>Current project: <strong><%= @project.name %></strong></p>
-<p>You're logged in as: <%= current_user.email %></p>
-<p><%= link_to "Logout!", logout_path %>
-</footer>
+  <p><%= link_to "Back to Projects List", projects_path %></p>
+
+
+  <script id="issue-template" type="text/x-handlebars-template">
+    <section class="main">
+      <ul class="todo-list">
+        <li class="issue" id="issue_{{id}}">
+          <div class="view">
+            <label>{{description}}</label>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </script>
+
+  <section>
+    <footer class="footer">
+      <span class="todo-count">
+        <strong><%= @project.issues.length %></strong>
+        <span> </span>
+        <span>issue(s)</span>
+        <span> active</span>
+      </span>
+      <ul class="filters">
+        <li><a href="#/" class="selected">All</a></li>
+          <span> </span>
+        <li><a href="#/active" class="">Active</a></li>
+          <span> </span>
+        <li><a href="#/archived" class="">Archived</a></li>
+      </ul>
+    </footer>
+  </section>
+
+  <section>
+    <footer class="info">
+      <p>Current project: <strong><%= @project.name %></strong></p>
+      <p>You're logged in as: <%= current_user.email %></p>
+      <p><%= link_to "Logout!", logout_path %>
+    </footer>
+  </section>
 
 </body>
 </html>

@@ -1,4 +1,56 @@
+class IssuesAPI {
+  constructor() {
+    this.endpoint = "http://localhost:3000/"
+  }
 
+  getIssues() {
+
+    const projectID = document.getElementById("project-id").innerHTML
+
+    fetch(this.endpoint + `/projects/${projectID}/issues.json`)
+    .then(response => (response.json())
+    .then(data => {
+      // console.log(data)
+      data.forEach(issue => {
+        new Issues(issue.description)
+      })
+      Issues.renderAll()
+    }).catch(err => console.error(err)))
+  }
+}
+
+class Issues {
+  static all = []
+
+  constructor(description) {
+    this.description = description
+    if (this.description != "") {
+      Issues.all.push(this)
+    }
+  }
+
+  render(i) {
+    let li = document.querySelector('li')
+    let html = `
+    <ul>
+      <li>${this.description}</li>
+    </ul>
+    `
+    li.innerHTML += html
+  }
+
+  static clearAll() {
+      Issues.all = [];
+  }
+
+  static renderAll() {
+    let li = document.querySelector('li')
+    li.innerHTML = ''
+    Issues.all.forEach((issue, i) => {
+      issue.render(i)
+    })
+  }
+}
 
 // "http://localhost:3000/projects/234/issues.json"
 // hidden field with project ID
@@ -17,7 +69,6 @@ Issue.success = function(json){
   var issue = new Issue(json);
   // Build function on prototype that when called will return equivalent of Rails partial
   var issueLi = issue.renderLI()
-
   // Inject li into ul
   $("ul.todo-list").append(issueLi)
 }
@@ -107,6 +158,6 @@ $(function(){
 })
 
 window.addEventListener("load", function() {
-  console.log("This worked!")
-  // new MedAdvAPI().getCompanies()
+  new IssuesAPI().getIssues()
+  // console.log("This worked!")
 })
